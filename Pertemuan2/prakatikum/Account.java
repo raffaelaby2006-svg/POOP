@@ -1,14 +1,15 @@
 package Pertemuan2.prakatikum;
-
 public class Account {
     private String accountNumber;
     private String ownerName;
     private double balance;
+    private double dailyWithDrawLimit;
 
-    public Account(String accountNumber, String ownerName, double balance){
+    public Account(String accountNumber, String ownerName, double balance, double dailyWithDrawLimit){
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;
         this.balance = balance;
+        this.dailyWithDrawLimit = dailyWithDrawLimit;
     }
     public String getAccountNumber(){
         return ownerName;
@@ -27,7 +28,7 @@ public class Account {
         return true;
     }
     public boolean withdraw(double amount){
-        if(amount <= 0){
+        if(amount <= 0 || amount > balance || amount > dailyWithDrawLimit){
             return false;
         }
         balance -= amount;
