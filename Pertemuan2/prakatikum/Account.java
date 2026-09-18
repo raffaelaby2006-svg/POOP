@@ -1,10 +1,10 @@
 package Pertemuan2.prakatikum;
 public class Account {
     private String accountNumber;
-    private String owner;
+    private Customer owner;
     private double balance;
 
-    public Account(String accountNumber, String owner, double balance){
+    public Account(String accountNumber, Customer owner, double balance){
         this.accountNumber = accountNumber;
         this.owner = owner;
         this.balance = balance;
