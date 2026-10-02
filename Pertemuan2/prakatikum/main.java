@@ -3,23 +3,9 @@ package Pertemuan2.prakatikum;
 public class main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Nadia", "0821-0000-0001");
-        Account acc1 = new Account("A001", customer1, 500000);
+        SavingsAccont acc1 = new SavingsAccont("A001", customer1, 500000, 0.01 );
         acc1.withdraw(150000);
         acc1.printInfo();   
-        Account acc3 = new Account("A003", customer1, 400000);
-
-        Customer customer2 = new Customer("Sari", "0812-0000-0002");
-        Account acc2 = new Account("A002", customer2, 200000);
-
-        Bank bank = new Bank(10);
-        bank.addAccount(acc1);
-        bank.addAccount(acc2);
-        bank.addAccount(acc3);
-        bank.printAllAccount();
-
-        Account[] found = bank.findAccountsByOwnerName("Nadia");
-        for (int i = 0; i < found.length; i++){
-            found[i].printInfo();
-        }
+        acc1.printAccountType();
     }
 }
