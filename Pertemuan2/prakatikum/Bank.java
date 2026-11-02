@@ -8,6 +8,7 @@ public class Bank {
         accounts = new Account[capacity];
         count = 0;
     }
+
     public boolean addAccount(Account account){
         if(count >= accounts.length){
             return false;
@@ -16,6 +17,7 @@ public class Bank {
         count++;
         return true;
     }
+
     public Account findAccount(String accountNumber){
         for(int i = 0; i<count; i++){
             if(accounts[i].getAccountNumber().equals(accountNumber)){
@@ -24,6 +26,7 @@ public class Bank {
         }
         return null;
     }
+
     public Account[] findAccountsByOwnerName(String name){
         int matchCount = 0;
         for (int i = 0;  i< count; i++){
@@ -41,9 +44,16 @@ public class Bank {
         }
         return matches;
     }
+
     public void printAllAccount(){
         for(int i = 0; i < count; i++){
             accounts[i].printInfo();
+        }
+    }
+    
+    public void printMonthlyFee(){
+        for(int i = 0; i<count; i++){
+            System.out.println(accounts[i].getAccountNumber() + "fee : " + accounts[i].monthlyFee());
         }
     }
 }

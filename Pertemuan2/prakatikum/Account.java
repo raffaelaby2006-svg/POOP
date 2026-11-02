@@ -1,5 +1,6 @@
 package Pertemuan2.prakatikum;
-public class Account {
+
+public abstract class Account {
     private String accountNumber;
     private Customer owner;
     private double balance;
@@ -9,31 +10,43 @@ public class Account {
         this.owner = owner;
         this.balance = balance;
     }
+
     public String getAccountNumber(){
         return accountNumber;
     }
+
     public Customer getOwner(){
         return owner;
     }
+
     public double getBalance(){
         return balance;
     }
-    public boolean deposit(double amount){
+
+    public boolean deposit (double amount){
         if(amount <= 0){
             return false;
         }
         balance += amount;
         return true;
     }
-    public boolean withdraw(double amount){
-        if(amount <= 0 || amount > balance){
-            return false;
-        }
-        balance -= amount;
-        return true;
+    
+    protected boolean canWithdraw(double amount){
+        return amount > 0 && amount <= balance;
     }
+
     public void printInfo(){
         System.out.println(accountNumber + "-" + owner.getName() + "- balance: " + balance );
+    }
+    
+    public abstract double monthlyFee();
+    
+    public void withdraw(double amount) throws InsufficientBalanceException {
+        if(!canWithdraw(amount)){
+            throw new InsufficientBalanceException(
+                accountNumber + ": insufficient balance for a withdrawal of " + amount);
+        }
+        balance -= amount;
     }
 }
 

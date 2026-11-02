@@ -34,4 +34,6 @@ public class Bike{
         System.out.println("Speed : " + speed);
         System.out.println("Gear : " + gear);
     }
+
+    pub
 }

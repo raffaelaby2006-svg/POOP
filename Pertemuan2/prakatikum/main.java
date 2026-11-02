@@ -1,18 +1,21 @@
 package Pertemuan2.prakatikum;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
-        Customer customer1 = new Customer("Nadia", "0821-0000-0001");
-        SavingsAccont acc1 = new SavingsAccont("A001", customer1, 500000, 0.01 );
-        acc1.withdraw(150000);
-
-        Customer customer2 = new Customer("Sari", "0821-0000-0002");
-        CheckingAccount acc2 = new CheckingAccount("A002", customer2, 200000, 50000);
-        acc2.withdraw(230000);
+        Customer customer= new Customer("Rian", "0812-0000-0003");
+        SavingsAccount savings = new SavingsAccount("A003", customer, 100000, 0.02);
         
-        Bank bank = new Bank(10);
-        bank.addAccount(acc1);
-        bank.addAccount(acc2);
-        bank.printAllAccount();
-    }
+        try {
+            savings.withdraw(70000);
+        }catch(InsufficientBalanceException e){
+            System.out.println("Withdraw failed: " + e.getMessage());
+        }
+
+        try{
+            savings.withdraw(30000);
+            System.out.println("Withdrawl succeeded, new balance: " + savings.getBalance());
+        }catch(InsufficientBalanceException e) {
+            System.out.println("Withdrawl failed : " + e.getMessage());
+        }
+    }   
 }
