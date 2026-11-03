@@ -9,7 +9,7 @@ public class CheckingAccount extends Account implements Auditable{
         this.overdraftLimit = overdraftLimit;
     }
     public double getOverdraftLimit(){
-        return getOverdraftLimit;
+        return getOverdraftLimit();
     }
 
     @Override
