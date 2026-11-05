@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +10,14 @@ public class Main {
 
         Customer customer3 = new Customer("Rian", "0812-0000-0001");
         SavingsAccount savings = new SavingsAccount("A003", customer3, 100000, 0.02);   
+
+        
+        Bank bank = new Bank(10);
+        
+        bank.addAccount(acc1);
+        bank.addAccount(acc2);
+        bank.addAccount(savings);
+        
         try {
             savings.withdraw(70000);
         }catch(InsufficientBalanceException e){
@@ -23,10 +31,14 @@ public class Main {
             System.out.println("Withdrawl failed : " + e.getMessage());
         }
 
-        Bank bank = new Bank(10);
-        bank.addAccount(acc1);
-        bank.addAccount(acc2);
-        bank.addAccount(savings);
+        try {
+            Account found = bank.findAccount("A002");
+            System.out.println(found.getAccountNumber() + " : " + found.getBalance());
+        }catch(AccountNotFoundException e){
+            System.out.println("searching: " + e.getMessage());
+        }
+
         bank.procesMontEnd();
+        bank.printAuditLog();
     }   
 }

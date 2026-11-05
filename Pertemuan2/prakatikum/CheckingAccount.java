@@ -1,4 +1,3 @@
-package Pertemuan2.prakatikum;
 
 public class CheckingAccount extends Account implements Auditable{
     private double overdraftLimit;

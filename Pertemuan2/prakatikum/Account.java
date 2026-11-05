@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 
 public abstract class Account {
     private String accountNumber;

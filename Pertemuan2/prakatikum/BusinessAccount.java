@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 
 public class BusinessAccount extends Account {
     private double monthlyTransactionFee;
@@ -12,5 +12,9 @@ public class BusinessAccount extends Account {
     }
     public void printAccountType(){
         System.out.println("Account type: Business, monthly fee: " + monthlyTransactionFee);
+    }
+    @Override
+    public double monthlyFee(){
+        return monthlyTransactionFee;
     }
 }

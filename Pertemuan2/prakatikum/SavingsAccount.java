@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 
 
 public class SavingsAccount extends Account implements InterestBearing{

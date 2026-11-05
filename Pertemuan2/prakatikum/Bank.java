@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 
 public class Bank {
     private Account[] accounts;
@@ -18,13 +18,13 @@ public class Bank {
         return true;
     }
 
-    public Account findAccount(String accountNumber){
+    public Account findAccount(String accountNumber)throws AccountNotFoundException{
         for(int i = 0; i<count; i++){
             if(accounts[i].getAccountNumber().equals(accountNumber)){
                 return accounts[i];
             }
         }
-        return null;
+        throw new AccountNotFoundException("Account not found: " +  accountNumber);
     }
 
     public Account[] findAccountsByOwnerName(String name){
@@ -65,6 +65,17 @@ public class Bank {
                 System.out.println(acc.getAccountNumber()+ "interest applied, new balance: " + acc.getBalance());
             }
             System.out.println(acc.getAccountNumber() + " monthly fee: " + acc.monthlyFee());
+        }
+    }
+    public void printAuditLog(){
+        for (int i = 0; i < count; i++){
+            Account acc = accounts[i];
+
+            if(acc instanceof Auditable){
+            Auditable audit = (Auditable) acc;
+            System.out.println(acc.getAccountNumber() + ": " + audit.auditLog());
+        
+            }
         }
     }
 }

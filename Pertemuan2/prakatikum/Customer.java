@@ -1,4 +1,4 @@
-package Pertemuan2.prakatikum;
+
 public  class Customer{
     private String name;
     private String phone;
