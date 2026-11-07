@@ -12,7 +12,7 @@ public class Main {
         SavingsAccount savings = new SavingsAccount("A003", customer3, 100000, 0.02);   
 
         
-        Bank bank = new Bank(10);
+        Bank bank = new Bank();
         
         bank.addAccount(acc1);
         bank.addAccount(acc2);
@@ -31,14 +31,7 @@ public class Main {
             System.out.println("Withdrawl failed : " + e.getMessage());
         }
 
-        try {
-            Account found = bank.findAccount("A002");
-            System.out.println(found.getAccountNumber() + " : " + found.getBalance());
-        }catch(AccountNotFoundException e){
-            System.out.println("searching: " + e.getMessage());
-        }
-
         bank.procesMontEnd();
-        bank.printAuditLog();
+
     }   
 }
