@@ -32,6 +32,7 @@ public class Main {
         }
 
         bank.procesMontEnd();
+        bank.printHistory("A003");
 
     }   
 }
